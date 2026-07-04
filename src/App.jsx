@@ -237,8 +237,8 @@ export default function App() {
   const formatItems = (items) => items.map(i => `${i.nombre}: ${i.valor}`).join(" | ");
 
   const handleLogin = () => {
-    const correcta = import.meta.env.VITE_PASSWORD;
-    if (password === correcta) {
+    const correcta = import.meta.env.VITE_PASSWORD ?? "";
+    if (correcta && password === correcta) {
       setAutenticado(true);
       setLoginError(false);
     } else {
@@ -268,7 +268,7 @@ Respondé SOLO con JSON válido, sin texto ni backticks:
 {"hallazgos":[{"problema":"nombre corto","apariciones":4,"descripcion":"explicacion basada en datos reales, max 25 palabras","recomendacion":"accion concreta y especifica, max 20 palabras","impacto":"alto"}],"kpis":[{"nombre":"nombre KPI","que_mide":"descripcion con valores de referencia del sistema","frecuencia":"diario"}],"resumen_cruces":[{"categoria_a":"copia EXACTA del nombre ingresado que genera el efecto","categoria_b":"copia EXACTA del nombre ingresado que recibe el efecto","insight":"hallazgo concreto max 15 palabras"}]}
 Máximo 4 hallazgos y 4 KPIs.`;
 
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 2000, messages: [{ role: "user", content: prompt }] })
