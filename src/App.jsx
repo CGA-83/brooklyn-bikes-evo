@@ -228,7 +228,7 @@ export default function App() {
   const [modo, setModo] = useState(null);
   const [subsistema, setSubsistema] = useState("");
   const [subsistemaCustom, setSubsistemaCustom] = useState("");
-  const [data] = useState(initialData);
+  const [data, setData] = useState(initialData);
   const [puntualData, setPuntualData] = useState({ elementos: [], variables: [], operaciones: [] });
   const [results, setResults] = useState(null);
   const [error, setError] = useState(null);
