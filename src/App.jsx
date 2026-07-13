@@ -405,9 +405,9 @@ Máximo 4 hallazgos y 4 KPIs.`;
           <div style={{ background: COLORS.surface, borderRadius: 16, padding: 20, border: `1px solid ${COLORS.border}`, marginBottom: 12 }}>
             {modo === "general" ? (
               <>
-                <ItemEditor label="② Elementos" color="#4f8ef7" items={data.elementos} onChange={() => {}} />
-                <ItemEditor label="③ Variables" color="#a78bfa" items={data.variables} onChange={() => {}} />
-                <ItemEditor label="④ Operaciones" color="#3ecf8e" items={data.operaciones} onChange={() => {}} />
+                <ItemEditor label="② Elementos" color="#4f8ef7" items={data.elementos} onChange={(v) => setData(d => ({ ...d, elementos: v }))} />
+                <ItemEditor label="③ Variables" color="#a78bfa" items={data.variables} onChange={(v) => setData(d => ({ ...d, variables: v }))} />
+                <ItemEditor label="④ Operaciones" color="#3ecf8e" items={data.operaciones} onChange={(v) => setData(d => ({ ...d, operaciones: v }))} />
               </>
             ) : (
               <>
